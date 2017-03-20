@@ -90,4 +90,95 @@ module.exports = function(Client) {
 		}
 	);
 
+	Client.task_done = function(task_id, cb) {
+		var Task = app.models.Task;
+		Task.findById(task_id, function(err, instance) {
+			if(err)
+				console.log("Can you do something working for once?");
+			else {
+				instance.done = true;
+				instance.save();
+				cb();
+			}
+		});
+	}
+
+	Client.remoteMethod(
+		'task_done',
+		{
+			accepts: {arg: 'task_id', type: 'number', required: true},
+			http: {path: '/taskDone', verb: 'post'}
+		}
+	);
+
+	Client.rate_worker = function(client_id, worker_id, rating, cb) {
+		var Worker = app.models.Worker;
+		Worker.findById(worker_id, function(err, instance) {
+			if(err)
+				console.log("Its probably their fault!");
+			else {
+				var Task = app.models.Task;
+				Task.find({where: {"assignee": worker_id, "done": true, "assigner": client_id}}, function(err, tasks) {
+					var len = tasks.length;
+					if(len == 0)
+						instance.rating = rating;
+					else {
+						var old_rating = instance.rating;
+						var new_rating = ((old_rating * (len - 1)) + rating) / len;
+						instance.rating = new_rating;
+					}
+					instance.save();
+					cb();
+				});
+			}
+		});
+	}
+
+	Client.remoteMethod(
+		'rate_worker',
+		{
+			accepts: [
+						{arg: client_id, type: 'number', required: true},
+						{arg: worker_id, type: 'number', required: true},
+						{arg: rating, type: 'number', required: true}
+					],
+			http: {path: '/rateWorker', verb: 'post'}
+		}
+	);
+
+	Client.rate_contractor = function(client_id, contractor_id, rating, cb) {
+		var Worker = app.models.Worker;
+		contractor.findById(contractor_id, function(err, instance) {
+			if(err)
+				console.log("Its probably their fault!");
+			else {
+				var Task = app.models.Task;
+				Task.find({where: {"assigned_under": contractor_id, "done": true, "assigner": client_id}}, function(err, tasks) {
+					var len = tasks.length;
+					if(len == 0)
+						instance.rating = rating;
+					else {
+						var old_rating = instance.rating;
+						var new_rating = ((old_rating * (len - 1)) + rating) / len;
+						instance.rating = new_rating;
+					}
+					instance.save();
+					cb();
+				});
+			}
+		});
+	}
+
+	Client.remoteMethod(
+		'rate_contractor',
+		{
+			accepts: [
+						{arg: client_id, type: 'number', required: true},
+						{arg: contractor_id, type: 'number', required: true},
+						{arg: rating, type: 'number', required: true}
+					],
+			http: {path: '/rateContractor', verb: 'post'}
+		}
+	);
+
 };
