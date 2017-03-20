@@ -39,5 +39,9 @@
   "Client": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Worker": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

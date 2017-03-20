@@ -1,0 +1,54 @@
+{
+  "name": "Worker",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "phone_number": {
+      "type": "string",
+      "required": true
+    },
+    "work_type": {
+      "type": "string",
+      "required": true,
+      "default": "daily"
+    },
+    "parent_org": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number",
+      "required": true,
+      "dataType": "float",
+      "precision": 2,
+      "scale": 1,
+      "default": 5.0
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
