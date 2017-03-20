@@ -32,14 +32,14 @@
   },
   "validations": [],
   "relations": {
-    "services": {
-      "type": "hasMany",
-      "model": "Service",
-      "foreignKey": ""
-    },
     "workers": {
       "type": "hasMany",
       "model": "Worker",
+      "foreignKey": ""
+    },
+    "service": {
+      "type": "belongsTo",
+      "model": "Service",
       "foreignKey": ""
     }
   },

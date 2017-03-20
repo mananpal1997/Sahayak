@@ -18,14 +18,14 @@
   },
   "validations": [],
   "relations": {
-    "contractor": {
-      "type": "belongsTo",
-      "model": "Contractor",
+    "workers": {
+      "type": "hasMany",
+      "model": "Worker",
       "foreignKey": ""
     },
-    "worker": {
-      "type": "belongsTo",
-      "model": "Worker",
+    "contractors": {
+      "type": "hasMany",
+      "model": "Contractor",
       "foreignKey": ""
     }
   },

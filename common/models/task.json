@@ -29,9 +29,13 @@
       "type": "string"
     },
     "duration": {
-      "type": "number"
+      "type": "string"
     },
     "assigned": {
+      "type": "boolean",
+      "default": false
+    },
+    "done": {
       "type": "boolean",
       "default": false
     }

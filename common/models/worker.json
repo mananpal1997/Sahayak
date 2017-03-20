@@ -49,8 +49,8 @@
   },
   "validations": [],
   "relations": {
-    "services": {
-      "type": "hasMany",
+    "service": {
+      "type": "belongsTo",
       "model": "Service",
       "foreignKey": ""
     }
