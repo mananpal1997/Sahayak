@@ -8,7 +8,7 @@ ds.once('connected', function() {
 	ds.autoupdate()
 	.then(function(err) {
 		if(err)
-			throw err;
+			console.log("Find the cause of error yourself :P").
 		else
 			console.log("migrations are done BAE... ;-)");
 	});

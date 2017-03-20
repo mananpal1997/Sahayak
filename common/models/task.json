@@ -1,0 +1,43 @@
+{
+  "name": "Task",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "info": {
+      "type": "string"
+    },
+    "rate_decided": {
+      "type": "string"
+    },
+    "assigner": {
+      "type": "number"
+    },
+    "assignee": {
+      "type": "number"
+    },
+    "assigned_under": {
+      "type": "number",
+      "default": -1
+    },
+    "location": {
+      "type": "string"
+    },
+    "report_time": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "assigned": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

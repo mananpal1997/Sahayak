@@ -44,7 +44,7 @@
       "dataType": "float",
       "precision": 2,
       "scale": 1,
-      "default": 5.0
+      "default": 5
     }
   },
   "validations": [],

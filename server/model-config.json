@@ -43,5 +43,17 @@
   "Worker": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Service": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Vacancy": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }
