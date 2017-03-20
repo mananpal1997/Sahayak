@@ -41,6 +41,11 @@
       "type": "belongsTo",
       "model": "Service",
       "foreignKey": ""
+    },
+    "services": {
+      "type": "hasAndBelongsToMany",
+      "model": "Service",
+      "foreignKey": ""
     }
   },
   "acls": [],
