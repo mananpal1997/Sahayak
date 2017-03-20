@@ -12,6 +12,18 @@ module.exports = function(Client) {
 	global.client_phone = "";
 	global.loc = "";
 
+	Client.afterRemote("login", function(context, client, next) {
+		var id = client.userId;
+		Client.findById(id, function(err, instance) {
+			context.result.data = instance;
+			next();
+		});
+	});
+
+	Client.book_contractor = function(client_id, contractor_id, task_info, location, report_time, duration, cb) {
+		
+	}
+
 	Client.book_worker = function(client_id, worker_id, task_info, service_id, location, report_time, duration, cb) {
 		async.series([
 			function(cb1) {

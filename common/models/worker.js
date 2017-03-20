@@ -22,6 +22,7 @@ module.exports = function(Worker) {
 	Worker.search = function(rating_filter, service_name, work_type, location, cb) {
 		var coords = location.split(",");
 		var Service = app.models.Service;
+		var Vacancy = app.models.Vacancy;
 		async.series([
 			function(cb1) {
 				if(rating_filter != -1) {
@@ -37,6 +38,14 @@ module.exports = function(Worker) {
 						});
 				}
 				Service.find({where: {"name": service_name, "work_type": work_type}}, function(err, instances) {
+					if(instances.length == 0)
+						Vacancy.create({
+							'type': service_name,
+							'location': location
+						}, function(err, instance, created) {
+							if(err)
+								console.log("Why don't you just leave coding -__-");
+						});
 					for(var j=0;j<instances.length; j++) {
 						global.result2.push(instances[j].id);
 					}
