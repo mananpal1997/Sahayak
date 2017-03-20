@@ -35,5 +35,9 @@
   "Contractor": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Client": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

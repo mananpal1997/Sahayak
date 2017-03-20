@@ -1,27 +1,24 @@
 {
-  "name": "Contractor",
+  "name": "Client",
   "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "phone_number": {
-      "type": "string",
-      "required": true
-    },
     "name": {
       "type": "string",
       "required": true
     },
-    "rating": {
-      "type": "number",
-      "dataType": "float",
-      "precision": 2,
-      "scale": 1,
-      "default": 3.5
+    "phone_number": {
+      "type": "string",
+      "required": true
     },
     "location": {
+      "type": "string",
+      "required": true
+    },
+    "sector": {
       "type": "string",
       "required": true
     },

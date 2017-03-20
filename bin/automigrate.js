@@ -9,5 +9,7 @@ ds.once('connected', function() {
 	.then(function(err) {
 		if(err)
 			throw err;
+		else
+			console.log("migrations are done BAE... ;-)");
 	});
 });
