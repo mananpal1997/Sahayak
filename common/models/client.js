@@ -138,9 +138,9 @@ module.exports = function(Client) {
 		'rate_worker',
 		{
 			accepts: [
-						{arg: client_id, type: 'number', required: true},
-						{arg: worker_id, type: 'number', required: true},
-						{arg: rating, type: 'number', required: true}
+						{arg: 'client_id', type: 'number', required: true},
+						{arg: 'worker_id', type: 'number', required: true},
+						{arg: 'rating', type: 'number', required: true}
 					],
 			http: {path: '/rateWorker', verb: 'post'}
 		}
@@ -173,9 +173,9 @@ module.exports = function(Client) {
 		'rate_contractor',
 		{
 			accepts: [
-						{arg: client_id, type: 'number', required: true},
-						{arg: contractor_id, type: 'number', required: true},
-						{arg: rating, type: 'number', required: true}
+						{arg: 'client_id', type: 'number', required: true},
+						{arg: 'contractor_id', type: 'number', required: true},
+						{arg: 'rating', type: 'number', required: true}
 					],
 			http: {path: '/rateContractor', verb: 'post'}
 		}

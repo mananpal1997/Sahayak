@@ -55,5 +55,9 @@
   "Task": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "Report": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

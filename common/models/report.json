@@ -1,0 +1,29 @@
+{
+  "name": "Report",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_type": {
+      "type": "string"
+    },
+    "report_by": {
+      "type": "number"
+    },
+    "report_for": {
+      "type": "number"
+    },
+    "content": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
