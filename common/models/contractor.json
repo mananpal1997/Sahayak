@@ -31,7 +31,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "services": {
+      "type": "hasMany",
+      "model": "Service",
+      "foreignKey": ""
+    },
+    "workers": {
+      "type": "hasMany",
+      "model": "Worker",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

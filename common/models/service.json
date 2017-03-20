@@ -17,7 +17,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "contractor": {
+      "type": "belongsTo",
+      "model": "Contractor",
+      "foreignKey": ""
+    },
+    "worker": {
+      "type": "belongsTo",
+      "model": "Worker",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
