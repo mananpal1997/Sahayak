@@ -16,7 +16,8 @@
       "type": "number"
     },
     "assignee": {
-      "type": "number"
+      "type": "number",
+      "default": -1,
     },
     "assigned_under": {
       "type": "number",

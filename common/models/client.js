@@ -21,8 +21,71 @@ module.exports = function(Client) {
 	});
 
 	Client.book_contractor = function(client_id, contractor_id, task_info, location, report_time, duration, cb) {
-		
+		async.series([
+			function(cb1) {
+				Client.findById(client_id, function(err, instance) {
+					if(err)
+						console.log("catch it homie");
+					else {
+						global.client_name = instance.name;
+						global.client_phone = instance.phone_number;
+					}
+					cb1();
+				});
+			},
+			function(cb2) {
+				var Contractor = app.models.Contractor;
+				request.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+location+"&key=AIzaSyCXLOyTx9owpJEkv-RgboWAVCtllFmwjnQ", function(err, resp, body) {
+					Contractor.findById(contractor_id, function(err, instance) {
+						global.loc = (JSON.parse(body)).results[0].formatted_address;
+						p.send_message({
+							'src': '+919457226437',
+							'dst': '+91' + instance.phone_number,
+							'method': 'GET',
+							'text': 'Your service has been requested at ' + global.loc
+									+ '\nby ' + global.client_name + ' for ' + task_info + ' on ' + String(report_time)
+									+ '. Contact number: ' + global.client_phone
+						}, function(status, res) {
+							cb2();
+						});
+					});
+				});
+			},
+			function(cb3) {
+				var Task = app.models.Task;
+				Task.create({
+					'info': task_info,
+					'assigner': client_id,
+					'assigned_under': contractor_id,
+					'location': global.loc,
+					'report_time': report_time,
+					'duration': duration
+				}, function(err, inst) {
+					if(err)
+						console.log("C'mon, write good code!");
+					else {
+						cb3();
+						cb();
+					}
+				});
+			}
+		]);
 	}
+
+	Client.remoteMethod(
+		'book_contractor',
+		{
+			accepts: [
+						{arg: 'client_id', type: 'number', required: true},
+						{arg: 'contractor_id', type: 'number', required: true},
+						{arg: 'task_info', type: 'string', required: true},
+						{arg: 'location', type: 'string', required: true},
+						{arg: 'report_time', type: 'string', required: true},
+						{arg: 'duration', type: 'string', required: true}
+					],
+			http: {path: '/book_worker', verb: 'post'}
+		}
+	)
 
 	Client.book_worker = function(client_id, worker_id, task_info, service_id, location, report_time, duration, cb) {
 		async.series([
