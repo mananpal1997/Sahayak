@@ -5,8 +5,28 @@ module.exports = function(app) {
   var Role = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
   var Client = app.models.Client;
+  var Worker = app.models.Worker;
+  var Contractor = app.models.Contractor;
 
   Client.settings.acls = [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ];
+
+  Worker.settings.acls = [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ];
+
+  Contractor.settings.acls = [
     {
       "accessType": "*",
       "principalType": "ROLE",
