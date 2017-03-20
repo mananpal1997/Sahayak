@@ -4,6 +4,16 @@ module.exports = function(app) {
   var User = app.models.User;
   var Role = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
+  var Client = app.models.Client;
+
+  Client.settings.acls = [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ];
 
   try {
   	User.create({ username: 'admin', email: 'admin@sahayak.com', password: 'admin@admin'}, function(err, instance, created) {});

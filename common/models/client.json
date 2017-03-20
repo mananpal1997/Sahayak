@@ -21,10 +21,6 @@
     "sector": {
       "type": "string",
       "required": true
-    },
-    "image": {
-      "type": "string",
-      "required": true
     }
   },
   "validations": [],
