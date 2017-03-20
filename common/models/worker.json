@@ -48,7 +48,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "services": {
+      "type": "hasMany",
+      "model": "Service",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
