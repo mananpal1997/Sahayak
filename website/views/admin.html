@@ -1,0 +1,62 @@
+        <div class="main-inner">
+            <div class="container">
+                <div class="row">
+
+    <div class="document-title">
+        <h1>Admin</h1>
+
+        <ul class="breadcrumb">
+        </ul>
+    </div><!-- /.document-title -->
+
+
+
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="content">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <label>Gender</label>
+                <select ng-model="gender" class="form-control" title="Select Gender">
+                    <option value="both">Male/Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <label>Age</label>
+                <select ng-model="age" class="form-control" title="Select Category">
+                    <option value="all">All Ages</option>
+                    <option value="1825">18-25</option>
+                    <option value="2640">26-40</option>
+                    <option value="4160">41-60</option>
+                    <option value="60">60 above</option>
+                </select>
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+    </div><!-- /.row -->
+
+    <hr>
+<div class="row">
+    <div class="col-sm-12 col-lg-12">
+        <ng-map style="height:500px;" zoom="11" center="[26.9039792, 75.8018831]">
+            <shape ng-repeat="location in bhamashah_data" ng-if="(gender==location.gender || gender == 'both') && ( age == 'all' || (age == '1825' && location.age >= 18 && location.age <=25) || (age == '2640' && location.age >= 26 && location.age <=40) || (age == '4160' && location.age >= 41 && location.age <=60) || (age == '60' && location.age >= 60))" id="circle" name="circle" centered="true"
+            stroke-color='#FF0000' stroke-opacity="1"stroke-weight="2"
+            center="[{{ location.coords }}]" radius="100" editable="false" ></shape>
+        </ng-map>                   
+    </div><!-- /.col-* -->
+</div>
+
+
+
+                        </div><!-- /.content -->
+                    </div><!-- /.col-* -->
+
+
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->

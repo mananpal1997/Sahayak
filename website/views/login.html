@@ -1,0 +1,80 @@
+<div class="main-inner">
+    <div class="container">
+        <div class="content">
+
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <div style="margin:0;" class="page-title">
+                    <center><h1>Login</h1></center>
+                    </div><!-- /.page-title -->
+
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a target="_blank" href="#user" aria-controls="user" role="tab" data-toggle="tab">Client</a></li>
+                            <li role="presentation"><a target="_blank" href="#contractor" aria-controls="contractor" role="tab" data-toggle="tab">Contractor</a></li>
+                            <li role="presentation"><a target="_blank" href="#worker" aria-controls="worker" role="tab" data-toggle="tab">Worker</a></li>
+                        </ul>
+
+                        <br>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="user">
+                                
+                                    <div class="form-group">
+                                        <label for="login-form-email">E-mail</label>
+                                        <input ng-model="email_client" type="email" class="form-control" name="email" id="login-form-email">
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="login-form-password">Password</label>
+                                        <input ng-model="password_client" type="password" class="form-control" name="password" id="login-form-password">
+                                    </div><!-- /.form-group -->
+
+                                    <button ng-click="login_client()" class="btn btn-primary" style="width:100%;">Login as Client</button>
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="contractor">
+                                    
+
+                                    <div class="form-group">
+                                        <label for="login-form-email">E-mail</label>
+                                        <input ng-model="email_contractor" type="email" class="form-control" name="email" id="login-form-email">
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="login-form-password">Password</label>
+                                        <input ng-model="password_contractor" type="password" class="form-control" name="password" id="login-form-password">
+                                    </div><!-- /.form-group -->
+
+                                    <button ng-click="login_contractor()" class="btn btn-primary" style="width:100%;">Login as Contractor</button>
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="worker">
+                                
+
+                                    <div class="form-group">
+                                        <label for="login-form-email">E-mail</label>
+                                        <input ng-model="email_worker" type="email" class="form-control" name="email" id="login-form-email">
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="login-form-password">Password</label>
+                                        <input ng-model="password_worker" type="password" class="form-control" name="password" id="login-form-password">
+                                    </div><!-- /.form-group -->
+
+                                    <button ng-click="login_worker()" class="btn btn-primary" style="width:100%;">Login as Worker</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- /.col-sm-4 -->
+            </div><!-- /.row -->
+
+        </div><!-- /.content -->
+    </div><!-- /.container -->
+</div><!-- /.main-inner -->

@@ -1,0 +1,24 @@
+Version: 1.0.0
+Release date: 2015-09-01
+What's new:
+- First release
+
+
+Version: 1.0.1
+Release date: 2015-09-11
+What's new:
+- Added missing SASS files
+
+
+Version: 1.0.2
+Release date: 2015-12-04
+What's new:
+- some CSS fixes and refactoring
+
+
+Version: 1.0.3
+Release date: 2016-07-26
+What's new:
+- Fixed scrolling issue in Firefox and IE browsers
+- removed sensor param in Google APIs
+- some responsive fixes

@@ -1,0 +1,204 @@
+
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                    
+
+
+                    <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <div style="margin:0;" class="page-title">
+           <center><h1>Register</h1></center>
+        </div><!-- /.page-title -->
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li style="width:33%" role="presentation" class="active"><a target="_blank" href="#user" aria-controls="user" role="tab" data-toggle="tab">User</a></li>
+                <li style="width:33%" role="presentation"><a target="_blank" href="#contractor" aria-controls="contractor" role="tab" data-toggle="tab">Contractor</a></li>
+                <li style="width:34%" role="presentation"><a target="_blank" href="#worker" aria-controls="worker" role="tab" data-toggle="tab">Worker</a></li>
+            </ul>
+
+            <br>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="user">
+                    <div class="form-group">
+                        <label for="login-form-email">Name</label>
+                        <input ng-model="name_client" type="text" class="form-control" name="name" id="login-form-name_client">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-username">Username</label>
+                        <input ng-model="username_client" type="text" class="form-control" name="username" id="login-form-username_client">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-email">Email</label>
+                        <input ng-model="email_client" type="email" class="form-control" name="email" id="login-form-email_client">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-first-name">Phone Number</label>
+                        <input ng-model="phone_number_client" type="text" class="form-control" name="phone_number" id="login-form-phone_number_client">
+                    </div><!-- /.form-group -->
+
+                    <div class="input-group">
+                      <input ng-model="location_client" type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon2">
+                      <a data-toggle="tooltip" data-placement="bottom" title="Current Location" style="cursor:pointer" ng-click="current_location()" class="input-group-addon" id="basic-addon2"><i class="fa fa-map-marker"></i></a>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label for="login-form-last-name">Location</label>
+                        <input type="text" class="form-control" name="location" id="login-form-location_client">
+                    </div>--><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-email">Sector</label>
+                        <input ng-model="sector_client" type="text" class="form-control" name="sector" id="login-form-sector_client">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-password">Password</label>
+                        <input ng-model="password_client" type="password" class="form-control" name="password" id="login-form-password_client">
+                    </div><!-- /.form-group -->
+
+                    <button ng-click="register_client()" style="width:100%" class="btn btn-primary">Register</button>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="contractor">
+                    <div class="form-group">
+                        <label for="login-form-email">Name</label>
+                        <input ng-model="name_contractor" type="text" class="form-control" name="name" id="login-form-name_contractor">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-username">Username</label>
+                        <input ng-model="username_contractor" type="text" class="form-control" name="username" id="login-form-username_contractor">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-email">Email</label>
+                        <input ng-model="email_contractor" type="email" class="form-control" name="email" id="login-form-email_contractor">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-first-name">Phone Number</label>
+                        <input ng-model="phone_number_contractor" type="text" class="form-control" name="phone_number" id="login-form-phone_number_contractor">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-last-name">Location</label>
+                        <input ng-model="location_contractor" type="text" class="form-control" name="location" id="login-form-location_contractor">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-password">Password</label>
+                        <input ng-model="password_contractor" type="password" class="form-control" name="password" id="login-form-password_contractor">
+                    </div><!-- /.form-group -->
+
+                    <button ng-click="register_contractor()" style="width:100%" class="btn btn-primary">Register</button>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="worker">
+                    <div class="form-group">
+                        <label for="login-form-email">Name</label>
+                        <input ng-model="name_worker" type="text" class="form-control" name="name" id="login-form-name_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-username">Username</label>
+                        <input ng-model="username_worker" type="text" class="form-control" name="username" id="login-form-username_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-email">Email</label>
+                        <input ng-model="email_worker" type="email" class="form-control" name="email" id="login-form-email_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-age">Age</label>
+                        <input ng-model="age_worker" type="text" class="form-control" name="age" id="login-form-age_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-gender">Gender</label>
+                        <input ng-model="gender_worker" type="text" class="form-control" name="gender" id="login-form-gender_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-first-name">Phone Number</label>
+                        <input ng-model="phone_number_worker" type="text" class="form-control" name="phone_number" id="login-form-phone_number_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-last-name">Location</label>
+                        <input ng-model="location_worker" type="text" class="form-control" name="location" id="login-form-location_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-work_type">Work Type</label>
+                        <input ng-model="work_type_worker" type="text" class="form-control" name="work_type" id="login-form-work_type_worker">
+                    </div><!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="login-form-parent_org">Parent Org.</label>
+                        <input ng-model="parent_org_worker" type="text" class="form-control" name="parent_org" id="login-form-parent_org_worker">
+                    </div><!-- /.form-group -->
+
+
+                    <div class="form-group">
+                        <label for="login-form-password">Password</label>
+                        <input ng-model="password_worker" type="password" class="form-control" name="password" id="login-form-password_worker">
+                    </div><!-- /.form-group -->
+
+                    <button ng-click="register_worker()" style="width:100%" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+
+
+
+
+            <!--<center>
+                <div class="user-photo" style="width:220px;">-->
+                    <!--<center><a href="#">
+                        <img style="max-width:194px;max-height:194px;min-width:194px;min-height:194px;" id="profile-image" alt="User Photo">
+                    </a> </center>
+                    <input type="file" accept="image/*" onchange="javascript:loadFile(event)">
+                    <script>
+                      var loadFile = function(event) {
+                        var output = document.getElementById('profile-image');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                      };
+                    </script>-->
+
+                    <!--<input id="inp" type='file'>
+                    <img id="img" height="150">     
+
+                    <script type="text/javascript">
+                        function readFile() {
+                            console.log("image");
+                          
+                          if (this.files && this.files[0]) {
+                            
+                            var FR= new FileReader();
+                            
+                            FR.addEventListener("load", function(e) {
+                                console.log(e.target.result);
+                              document.getElementById("img").src       = e.target.result;
+                              document.getElementById("b64").innerHTML = e.target.result;
+                            }); 
+                            
+                            FR.readAsDataURL( this.files[0] );
+                          }
+                          
+                        }
+
+                        document.getElementById("inp").addEventListener("change", readFile);
+                    </script>
+                </div>--><!-- /.user-photo -->
+    </div><!-- /.col-sm-4 -->
+</div><!-- /.row -->
+
+                </div><!-- /.content -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->

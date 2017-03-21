@@ -1,0 +1,129 @@
+        <div class="main-inner">
+            <div class="container">
+                <div class="row">
+
+    <div class="document-title">
+        <h1>Workers</h1>
+
+        <ul class="breadcrumb">
+        </ul>
+    </div><!-- /.document-title -->
+
+
+
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="content">
+                            <form class="filter" method="post" action="?">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <input type="text" placeholder="Keyword" class="form-control">
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <select class="form-control" title="Select Location">
+                    <option>Bronx</option>
+                    <option>Brooklyn</option>
+                    <option>Manhattan</option>
+                    <option>Staten Island</option>
+                    <option>Queens</option>
+                </select>
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                <select class="form-control" title="Select Category">
+                    <option value="">Automotive</option>
+                    <option value="">Jobs</option>
+                    <option value="">Nightlife</option>
+                    <option value="">Services</option>
+                </select>
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="filter-actions">
+                <a href="#"><i class="fa fa-close"></i> Reset Filter</a>
+                <a href="#"><i class="fa fa-save"></i> Save Search</a>
+            </div><!-- /.filter-actions -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary">Redefine Search Result</button>
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+</form>
+<div class="row">
+<div class="col-sm-12 col-lg-12">
+                        <div class="sidebar">
+                            <div class="widget">
+    <h2 class="widgettitle">Recent Listings</h2>
+    <div class="row">
+        <div class="cards-small col-md-4 col-sm-12" ng-repeat="worker in workers">
+            <div class="card-small">
+                <div class="card-small-image">
+                    <a href="listing-detail.html">
+                        <img src="assets/img/worker.jpg">
+                    </a>
+                </div><!-- /.card-small-image -->
+
+                <div class="card-small-content row">
+                    <div class="col-md-3">
+                        <h3><a href="#">{{ worker.name }}</a></h3>
+                        <h4><a href="#">{{ worker.username }}</a></h4>
+
+                        <div class="card-small-price">{{ worker.phone_number }}</div>
+                    </div>
+                    <div class="col-md-5">
+                        <ul style="padding-left:0px;height:20px;" class="hero-slider-rating">
+                        <i ng-if="worker.rating>=1" class="fa fa-star"></i>
+                        <i ng-if="worker.rating>=1.5 && worker.rating<2" class="fa fa-star-half"></i>
+                        <i ng-if="worker.rating>=2" class="fa fa-star"></i>
+                        <i ng-if="worker.rating>=2.5 && worker.rating<3" class="fa fa-star-half"></i>
+                        <i ng-if="worker.rating>=3" class="fa fa-star"></i>
+                        <i ng-if="worker.rating>=3.5 && worker.rating<4" class="fa fa-star-half"></i>
+                        <i ng-if="worker.rating>=4" class="fa fa-star"></i>
+                        <i ng-if="worker.rating>=4.5 && worker.rating<5" class="fa fa-star-half"></i>
+                        <i ng-if="worker.rating>=5" class="fa fa-star"></i>
+                        <span style="color:white;">&nbsp;{{ worker.rating }}</span>
+                      </ul>
+                      <div>{{ worker.rating }}/5.0 Rating</div>
+                    </div>
+                </div><!-- /.card-small-content -->
+            </div><!-- /.card-small -->
+        </div><!-- /.cards-small -->
+    </div>
+</div><!-- /.widget -->
+
+
+
+
+                        </div><!-- /.sidebar -->
+                    </div><!-- /.col-* -->
+                  </div>
+
+<div class="pager">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">5</a></li>
+        <li class="active"><a>6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div><!-- /.pagination -->
+
+
+                        </div><!-- /.content -->
+                    </div><!-- /.col-* -->
+
+
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
