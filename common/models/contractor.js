@@ -78,18 +78,16 @@ module.exports = function(Contractor) {
 		async.series([
 			function(cb1) {
 				var services = services_names.split(",");
-				if(rating_filter != -1) {
-					if(rating_filter)
-						Contractor.find({"order": "rating"}, function(err, instances) {
-							for(var i=0; i<instances.length; i++)
-								global.result1.push(instances[i].id);
-						});
-					else
-						Contractor.find({"order": "rating desc"}, function(err, instances) {
-							for(var i=0; i<instances.length; i++)
-								global.result1.push(instances[i].id);
-						});
-				}
+				if(rating_filter)
+					Contractor.find({"order": "rating"}, function(err, instances) {
+						for(var i=0; i<instances.length; i++)
+							global.result1.push(instances[i].id);
+					});
+				else
+					Contractor.find({"order": "rating desc"}, function(err, instances) {
+						for(var i=0; i<instances.length; i++)
+							global.result1.push(instances[i].id);
+					});
 				for(var i=0; i<services.length; i++) {
 					Service.find({where: {"name": services[i]}}, function(err, instances) {
 						if(instances.length == 0)

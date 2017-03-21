@@ -25,18 +25,16 @@ module.exports = function(Worker) {
 		var Vacancy = app.models.Vacancy;
 		async.series([
 			function(cb1) {
-				if(rating_filter != -1) {
-					if(rating_filter)
-						Worker.find({"order": "rating"}, function(err, instances) {
-							for(var i=0; i<instances.length; i++)
-								global.result1.push(instances[i].id);
-						});
-					else
-						Worker.find({"order": "rating desc"}, function(err, instances) {
-							for(var i=0; i<instances.length; i++)
-								global.result1.push(instances[i].id);
-						});
-				}
+				if(rating_filter)
+					Worker.find({"order": "rating"}, function(err, instances) {
+						for(var i=0; i<instances.length; i++)
+							global.result1.push(instances[i].id);
+					});
+				else
+					Worker.find({"order": "rating desc"}, function(err, instances) {
+						for(var i=0; i<instances.length; i++)
+							global.result1.push(instances[i].id);
+					});
 				Service.find({where: {"name": service_name, "work_type": work_type}}, function(err, instances) {
 					if(instances.length == 0)
 						Vacancy.create({
