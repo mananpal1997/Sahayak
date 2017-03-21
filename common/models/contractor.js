@@ -19,6 +19,58 @@ module.exports = function(Contractor) {
 		});
 	});
 
+	Contractor.assign = function(task_id, worker_id, task_info, rate, cb) {
+		var Task = app.models.Task;
+		Task,findById(task_id, function(err, instance) {
+			Task.create({
+				'info': task_info,
+				'rate_decided': rate,
+				'assigner': instance.client_id,
+				'assignee': worker_id,
+				'assigned_under': instance.contractor_id,
+				'location': instance.location,
+				'report_time': instance.report_time,
+				'duration': instance.duration,
+				'assigned': true
+			}, function(err, instance, created) {
+				if(err)
+					console.log("FrontEnd Error! :D");
+				else
+					cb();
+			});
+		});
+	}
+
+	Contractor.remoteMethod(
+		'assign',
+		{
+			accepts: [
+						{arg: 'task_id', type: 'number', required: true},
+						{arg: 'worker_id', type: 'number', required: true},
+						{arg: 'task_info', type: 'string', required: true},
+						{arg: 'rate', type: 'string', required: true}
+					],
+			http: {path: '/assign', verb: 'post'}
+		}
+	);
+
+	Contractor.all_assigned = function(task_id, cb) {
+		var Task = app.models.Task;
+		Task.findById(task_id, function(err, instance) {
+			instance.done = true;
+			instance.save();
+			cb();
+		});
+	}
+
+	Contractor.remoteMethod(
+		'all_assigned',
+		{
+			accepts: {arg: 'task_id', type: 'number', required: true},
+			http: {path: '/allAssigned', verb: 'post'}
+		}
+	);
+
 	Contractor.search = function(rating_filter, services_names, location, cb) {
 		var coords = location.split(",");
 		var Service = app.models.Service;
