@@ -23,25 +23,12 @@
 
         <div class="col-sm-12 col-md-4">
             <div class="form-group">
-                <select class="form-control" title="Select Location">
-                    <option>Bronx</option>
-                    <option>Brooklyn</option>
-                    <option>Manhattan</option>
-                    <option>Staten Island</option>
-                    <option>Queens</option>
-                </select>
+                <input type="text" placeholder="Location" class="form-control">
             </div><!-- /.form-group -->
         </div><!-- /.col-* -->
 
         <div class="col-sm-12 col-md-4">
-            <div class="form-group">
-                <select class="form-control" title="Select Category">
-                    <option value="">Automotive</option>
-                    <option value="">Jobs</option>
-                    <option value="">Nightlife</option>
-                    <option value="">Services</option>
-                </select>
-            </div><!-- /.form-group -->
+            <button style="width:100%;" type="submit" class="btn btn-primary">Redefine Search Result</button>
         </div><!-- /.col-* -->
     </div><!-- /.row -->
 
@@ -54,10 +41,6 @@
                 <a href="#"><i class="fa fa-save"></i> Save Search</a>
             </div><!-- /.filter-actions -->
         </div><!-- /.col-* -->
-
-        <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary">Redefine Search Result</button>
-        </div><!-- /.col-* -->
     </div><!-- /.row -->
 </form>
 <div class="row">
@@ -66,20 +49,25 @@
                             <div class="widget">
     <h2 class="widgettitle">Recent Listings</h2>
     <div class="row">
-        <div class="cards-small col-md-6 col-sm-12" ng-repeat="i in [0,1,2,3,4]">
+        <div class="cards-small col-md-4 col-sm-12" ng-repeat="service in services">
             <div class="card-small">
                 <div class="card-small-image">
                     <a href="listing-detail.html">
-                        <img src="assets/img/tmp/product-4.jpg" alt="Coffee &amp; Newspaper">
+                        <img src="assets/img/service.jpg">
                     </a>
                 </div><!-- /.card-small-image -->
 
-                <div class="card-small-content">
-                    <h3><a href="listing-detail.html">Coffee &amp; Newspaper</a></h3>
-                    <h4><a href="listing-detail.html">New York / Village</a></h4>
+                <div class="row" style="margin-top:12px;">
+                    <div style="margin-left:0px;" class="col-md-4 card-small-content">
+                        <h3><a href="listing-detail.html">{{ service.name }}</a></h3>
+                        <h4><a href="listing-detail.html">{{ service.type }}</a></h4>
 
-                    <div class="card-small-price">$180 / person</div>
-                </div><!-- /.card-small-content -->
+                        <div class="card-small-price">Rs. {{ service.rate }}</div>
+                    </div><!-- /.card-small-content -->
+                    <div class="col-md-2">
+                    <button class="btn btn-primary">Book</button>
+                    </div>
+                </div>
             </div><!-- /.card-small -->
         </div><!-- /.cards-small -->
     </div>
@@ -95,9 +83,7 @@
 <div class="pager">
     <ul>
         <li><a href="#">Prev</a></li>
-        <li><a href="#">5</a></li>
-        <li class="active"><a>6</a></li>
-        <li><a href="#">7</a></li>
+        <li><a href="#" class="active">1</a></li>
         <li><a href="#">Next</a></li>
     </ul>
 </div><!-- /.pagination -->
