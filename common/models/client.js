@@ -256,4 +256,21 @@ module.exports = function(Client) {
 		}
 	);
 
+	Client.cancel_task = function(task_id, cb) {
+		var Task = app.models.Task;
+		Task.findById(task_id, function(err, instance) {
+			instance.done = true;
+			instance.save();
+			cb();
+		});
+	}
+
+	Client.remoteMethod(
+		'cancel_task',
+		{
+			accepts: {arg: 'task_id', type: 'number', required: true},
+			http: {path: '/cancel', verb: 'post'}
+		}
+	);
+
 };
