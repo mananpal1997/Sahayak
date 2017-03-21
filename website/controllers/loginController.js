@@ -14,6 +14,9 @@ app.controller("loginController", function($scope, $http, api, toastr, $window){
 				toastr.success("Successfully login Client");
 				$window.localStorage['id'] = response.data.id;
 				$window.localStorage['userId'] = response.data.userId;
+				$window.localStorage['username'] = response.data.data.username;
+				$window.localStorage['type'] = "client";
+				$window.location.href = '/'; 
 			}, function(error){
 				console.log(error.data);
 				toastr.error("Invalid Credentials")
@@ -34,6 +37,9 @@ app.controller("loginController", function($scope, $http, api, toastr, $window){
 				toastr.success("Successfully login Contractor");
 				$window.localStorage['id'] = response.data.id;
 				$window.localStorage['userId'] = response.data.userId;
+				$window.localStorage['username'] = response.data.data.username;
+				$window.localStorage['type'] = "contractor";
+				$window.location.href = '/';
 			}, function(error){
 				console.log(error.data);
 				toastr.error("Invalid Credentials")
@@ -54,6 +60,9 @@ app.controller("loginController", function($scope, $http, api, toastr, $window){
 				toastr.success("Successfully login Worker");
 				$window.localStorage['id'] = response.data.id;
 				$window.localStorage['userId'] = response.data.userId;
+				$window.localStorage['username'] = response.data.data.username;
+				$window.localStorage['type'] = "worker";
+				$window.location.href = '/';
 			}, function(error){
 				console.log(error.data);
 				toastr.error("Invalid Credentials")

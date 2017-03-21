@@ -160,7 +160,7 @@
 
     else
     {
-        document.getElementById("login_btn").innerHTML = '<a style="background-color:#009f8b;color:white;padding:22px;margin-left:2px;margin-right:2px;" ui-sref="login" class="" title=""data-toggle="tooltip" data-placement="bottom"><span>User Id : '+ localStorage['userId'] +'</span></a>';
+        document.getElementById("login_btn").innerHTML = '<a style="background-color:#009f8b;color:white;padding:22px;margin-left:2px;margin-right:2px;" ui-sref="login" class="" title=""data-toggle="tooltip" data-placement="bottom"><span>'+ localStorage['username'] +'</span></a>';
         document.getElementById("register_btn").innerHTML = '<a style="background-color:#009f8b;color:white;padding:22px;margin-left:2px;margin-right:2px;" ui-sref="logout" class="" title=""data-toggle="tooltip" data-placement="bottom"><span>Logout</span></a>'; 
     }
 
