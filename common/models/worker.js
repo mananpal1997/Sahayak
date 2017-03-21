@@ -35,19 +35,20 @@ module.exports = function(Worker) {
 						for(var i=0; i<instances.length; i++)
 							global.result1.push(instances[i].id);
 					});
-				Service.find({where: {"name": service_name, "work_type": work_type}}, function(err, instances) {
-					if(instances.length == 0)
-						Vacancy.create({
-							'type': service_name,
-							'location': location
-						}, function(err, instance, created) {
-							if(err)
-								console.log("Why don't you just leave coding -__-");
-						});
-					for(var j=0;j<instances.length; j++) {
-						global.result2.push(instances[j].id);
-					}
-				});
+				if(service_name != "none")
+					Service.find({where: {"name": service_name, "work_type": work_type}}, function(err, instances) {
+						if(instances.length == 0)
+							Vacancy.create({
+								'type': service_name,
+								'location': location
+							}, function(err, instance, created) {
+								if(err)
+									console.log("Why don't you just leave coding -__-");
+							});
+						for(var j=0;j<instances.length; j++) {
+							global.result2.push(instances[j].id);
+						}
+					});
 				Worker.find({"order": "location"}, function(err, instances) {
 					for(var i=0; i<instances.length; i++) {
 						var coords1 = instances[i].location.split(",");

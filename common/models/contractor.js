@@ -88,21 +88,22 @@ module.exports = function(Contractor) {
 						for(var i=0; i<instances.length; i++)
 							global.result1.push(instances[i].id);
 					});
-				for(var i=0; i<services.length; i++) {
-					Service.find({where: {"name": services[i]}}, function(err, instances) {
-						if(instances.length == 0)
-							Vacancy.create({
-								'type': services[i],
-								'location': location
-							}, function(err, instance, created) {
-								if(err)
-									console.log("(\"._.) yet another mistake");
-							});
-						for(var j=0;j<instances.length; j++) {
-							global.result2.push(instances[j].id);
-						}
-					});
-				}
+				if(!(services.length == 1 && services[0] == "none"))
+					for(var i=0; i<services.length; i++) {
+						Service.find({where: {"name": services[i]}}, function(err, instances) {
+							if(instances.length == 0)
+								Vacancy.create({
+									'type': services[i],
+									'location': location
+								}, function(err, instance, created) {
+									if(err)
+										console.log("(\"._.) yet another mistake");
+								});
+							for(var j=0;j<instances.length; j++) {
+								global.result2.push(instances[j].id);
+							}
+						});
+					}
 				Contractor.find({"order": "location"}, function(err, instances) {
 					for(var i=0; i<instances.length; i++) {
 						var coords1 = instances[i].location.split(",");
